@@ -1,0 +1,35 @@
+[package]
+name = "cl-glyph"
+version = "0.1.0"
+edition = "2024"
+description = "Define and render centerline glyphs"
+repository = "https://github.com/mkovaxx/cl-glyph"
+readme = "README.md"
+license = "MIT"
+keywords = ["centerline", "font", "glyph", "typeface", "typography"]
+categories = ["encoding", "graphics"]
+exclude = [".gitignore"]
+
+[features]
+default = ["svg"]
+svg = ["dep:svg"]
+wasm = ["svg", "dep:wasm-bindgen", "dep:serde-wasm-bindgen"]
+
+[lib]
+crate-type = [
+    # Build a standalone `.wasm` module.
+    "cdylib",
+    # For other Rust crates to depend on.
+    "rlib",
+]
+
+[profile.release]
+opt-level = "s"
+
+[dependencies]
+glam = "0.30.9"
+itertools = "0.15.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde-wasm-bindgen = { version = "0.6.5", optional = true }
+svg = { version = "0.18.0", optional = true }
+wasm-bindgen = { version = "0.2.130", optional = true }
