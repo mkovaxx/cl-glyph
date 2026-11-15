@@ -15,8 +15,8 @@ impl Stroke {
         }
 
         Path {
-            is_closed: self.is_closed,
-            thickness: self.thickness,
+            is_closed: self.is_closed(),
+            thickness: self.thickness(),
             verts,
         }
     }
