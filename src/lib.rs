@@ -77,27 +77,27 @@ impl Stroke {
         self
     }
 
-    /// Extend the stroke with an arc with `radius` and off-curve point `p`.
+    /// Extend the stroke with an arc of `radius` and off-curve point `p`.
     pub fn arc(mut self, radius: f64, p: [f64; 2]) -> Self {
         self.elems_mut().push(Elem::Arc(radius, (p[0], p[1])));
         self
     }
 
-    /// Extend the stroke with an arc with `radius`, from `f` towards off-curve point `p`.
+    /// Extend the stroke with an arc of `radius`, from `f` towards off-curve point `p`.
     pub fn arc_f(mut self, radius: f64, f: [f64; 2], p: [f64; 2]) -> Self {
         self.elems_mut()
             .push(Elem::ArcF(radius, (f[0], f[1]), (p[0], p[1])));
         self
     }
 
-    /// Extend the stroke with an arc with `radius`, towards off-curve point `p` into `l`.
+    /// Extend the stroke with an arc of `radius`, towards off-curve point `p` into `l`.
     pub fn arc_l(mut self, radius: f64, p: [f64; 2], l: [f64; 2]) -> Self {
         self.elems_mut()
             .push(Elem::ArcL(radius, (p[0], p[1]), (l[0], l[1])));
         self
     }
 
-    /// Extend the stroke with an arc of a given `radius` and off-curve points `p` and `q`.
+    /// Extend the stroke with an arc of `radius` and off-curve points `p` and `q`.
     pub fn arc_2(mut self, radius: f64, p: [f64; 2], q: [f64; 2]) -> Self {
         self.elems_mut()
             .push(Elem::Arc2(radius, (p[0], p[1]), (q[0], q[1])));
