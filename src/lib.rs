@@ -52,18 +52,6 @@ impl Glyph {
         self.strokes.push(stroke);
         self
     }
-
-    pub fn stroke_open(mut self, thickness: f64, elems: impl IntoIterator<Item = Elem>) -> Self {
-        self.strokes
-            .push(Stroke::Open(thickness, elems.into_iter().collect()));
-        self
-    }
-
-    pub fn stroke_closed(mut self, thickness: f64, elems: impl IntoIterator<Item = Elem>) -> Self {
-        self.strokes
-            .push(Stroke::Closed(thickness, elems.into_iter().collect()));
-        self
-    }
 }
 
 impl Stroke {
